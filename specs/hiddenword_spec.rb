@@ -33,4 +33,23 @@ class HiddenWordTest < MiniTest::Test
     @hiddenword = HiddenWord.new('apple')
     assert_equal(false,@hiddenword.is_in_secret?('z'))
   end
+
+  def test_display__word
+    @hiddenword = HiddenWord.new('apple')
+    @guessed_letters = ['a','e']
+    assert_equal('a***e',@hiddenword.display(@guessed_letters))
+  end
+  #
+  # def test_display__phrase
+  #   @hiddenword = HiddenWord.new('')
+  #   @guessed_letters = ['a','e']
+  #   assert_equal('a***e',@hiddenword.display(@guessed_letters))
+  # end
+  #
+  # def test_display__word
+  #   @hiddenword = HiddenWord.new('apple')
+  #   @guessed_letters = ['a','e']
+  #   assert_equal('a***e',@hiddenword.display(@guessed_letters))
+  # end
+
 end

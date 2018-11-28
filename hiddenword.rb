@@ -11,4 +11,25 @@ class HiddenWord
     return @word.include?(char)
   end
 
+  def display(guessed_letters)
+  @word_to_display = obfuscate
+
+  #Iterate through each character in the unobfuscated @word and check to see if
+  # each character matches and return an array of matching indexes.
+
+  index_counter = 0
+  indexes_to_sub = []
+
+  @word.each_char {|char|
+      indexes_to_sub << index_counter if guessed_letters.include?(char)
+      index_counter += 1
+  }
+
+  indexes_to_sub.each { |index| @word_to_display[index] = @word[index]
+  }
+
+  return @word_to_display
+  end
+
+
 end
