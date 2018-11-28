@@ -28,5 +28,14 @@ class HiddenWordTest < MiniTest::Test
     @hiddenword = HiddenWord.new('This clock is only £12!')
     assert_equal("**** ***** ** **** ****",@hiddenword.obfuscate)
   end
-  # def test_character_present__true
+
+  def test_character_present__true
+    @hiddenword = HiddenWord.new('apple')
+    assert_equal(true,@hiddenword.is_in_secret?('a'))
+  end
+
+  def test_character_present__false
+    @hiddenword = HiddenWord.new('apple')
+    assert_equal(false,@hiddenword.is_in_secret?('z'))
+  end
 end

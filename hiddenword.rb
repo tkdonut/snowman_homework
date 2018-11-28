@@ -5,6 +5,11 @@ class HiddenWord
   end
 
   def obfuscate
-      @word.gsub(/[^\s]/,'*')
+    return @word.gsub(/[^\s]/,'*')
   end
+
+  def is_in_secret?(char)
+    return @word.include?(char)
+  end
+
 end
