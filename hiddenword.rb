@@ -1,11 +1,6 @@
-require('minitest/autorun')
-require('minitest/rg')
-require_relative('../hiddenword')
-
-class TestHiddenWord < MiniTest::Test
-
-  def test_hiddenword_has_word
-    @hiddenword = HiddenWord.new('banana')
-    assert_equal('banana',@hiddenword.secret)
+class HiddenWord
+  attr_reader :secret
+  def initialize(secret)
+    @secret = secret
   end
 end
