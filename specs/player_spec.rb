@@ -12,4 +12,9 @@ class TestPlayer < MiniTest::Test
     @player = Player.new("Maximus")
     assert_equal(6,@player.lives)
   end
+
+  def test_player_can_lose_a_life
+    @player = Player.new("Maximus")
+    assert_equal(5,@player.lose_life)
+  end
 end

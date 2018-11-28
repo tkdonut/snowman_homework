@@ -12,23 +12,28 @@ class HiddenWord
   end
 
   def display(guessed_letters)
-  @word_to_display = obfuscate
 
-  #Iterate through each character in the unobfuscated @word and check to see if
-  # each character matches and return an array of matching indexes.
+    system("clear")
 
-  index_counter = 0
-  indexes_to_sub = []
+    @word_to_display = obfuscate()
 
-  @word.each_char {|char|
-      indexes_to_sub << index_counter if guessed_letters.include?(char)
-      index_counter += 1
-  }
+    # Iterate through each character in the unobfuscated @word and check to see if
+    # each character matches and return an array of matching indexes.
 
-  indexes_to_sub.each { |index| @word_to_display[index] = @word[index]
-  }
+    index_counter = 0
+    indexes_to_sub = []
 
-  return @word_to_display
+    @word.each_char {|char|
+        indexes_to_sub << index_counter if guessed_letters.include?(char)
+        index_counter += 1
+    }
+    # Map letters from original word to obfuscated word.
+
+    indexes_to_sub.each { |index| @word_to_display[index] = @word[index]
+    }
+
+    return @word_to_display
+
   end
 
 
