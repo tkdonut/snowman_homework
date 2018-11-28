@@ -14,4 +14,19 @@ class HiddenWordTest < MiniTest::Test
     assert_equal("******",@hiddenword.obfuscate)
   end
 
+  def test_obfuscates_word__phrase
+    @hiddenword = HiddenWord.new('The rain in spain')
+    assert_equal("*** **** ** *****",@hiddenword.obfuscate)
+  end
+
+  def test_obfuscates_word__contains_numbers
+    @hiddenword = HiddenWord.new('2 Fast 2 Furious')
+    assert_equal("* **** * *******",@hiddenword.obfuscate)
+  end
+
+  def test_obfuscates_word__contains_special_chars_and_numbers
+    @hiddenword = HiddenWord.new('This clock is only £12!')
+    assert_equal("**** ***** ** **** ****",@hiddenword.obfuscate)
+  end
+  # def test_character_present__true
 end
