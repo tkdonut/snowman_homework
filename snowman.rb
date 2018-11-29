@@ -41,18 +41,24 @@ end
 # Main loop
 
 while true
-    system('clear')
-    puts ''
-    puts ''
-    print '  Lives remaining:  '
-    @player.lives.times do
+  system('clear')
+  puts ''
+  puts ''
+  print '  Lives remaining:  '
+  @player.lives.times do
     print '  ❤'
   end
   puts ''
   puts ''
+  if @game.guessed_letters.length > 0
+    print '  Characters tried: '
+    @game.guessed_letters.each do |letter|
+      print(' ' + letter)
+    end
+  end
+  puts ''
   puts ''
   puts '  Word:      ' + @hiddenword.display(@game.guessed_letters)
-  puts ''
   puts ''
   print '  Guess a character : '
   @game.make_guess(gets.chomp)
