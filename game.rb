@@ -23,4 +23,8 @@ class Game
   def is_won?()
     @hiddenword.display(guessed_letters) == @hiddenword.word
   end
+
+  def is_lost?()
+    @player.lives == 0
+  end
 end

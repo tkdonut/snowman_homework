@@ -53,4 +53,40 @@ class TestGame < MiniTest::Test
     assert_equal(false,@game.is_won?)
   end
 
+  def test_game_is_lost__1_badguess
+    assert_equal(false,@game.is_lost?)
+  end
+
+  def test_game_is_lost__5_badguesses
+    @game.make_guess('1')
+    @game.make_guess('2')
+    @game.make_guess('3')
+    @game.make_guess('4')
+    @game.make_guess('5')
+
+    assert_equal(false,@game.is_lost?)
+  end
+
+  def test_game_is_lost__6_badguesses
+    @game.make_guess('1')
+    @game.make_guess('2')
+    @game.make_guess('3')
+    @game.make_guess('4')
+    @game.make_guess('5')
+    @game.make_guess('6')
+    assert_equal(true,@game.is_lost?)
+  end
+
+
+  def test_game_is_lost__5_badguesses_with_goodguesses
+    @game.make_guess('1')
+    @game.make_guess('2')
+    @game.make_guess('a')
+    @game.make_guess('3')
+    @game.make_guess('b')
+    @game.make_guess('4')
+    @game.make_guess('5')
+    assert_equal(false,@game.is_lost?)
+  end
+
 end

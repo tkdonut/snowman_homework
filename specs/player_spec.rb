@@ -17,5 +17,4 @@ class TestPlayer < MiniTest::Test
     @player = Player.new("Maximus")
     assert_equal(5,@player.lose_life)
   end
-
 end
