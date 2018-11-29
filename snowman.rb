@@ -63,14 +63,14 @@ while true
   print '  Guess a character : '
   @game.make_guess(gets.chomp)
 
-  if @game.is_won? == true
+  if @game.is_won?
     system('clear')
     puts ""
     puts ""
     puts "  Nicely done #{@player.name}!  A winner is you !    "
     puts ""
     break
-  elsif @game.is_lost? == true
+  elsif @game.is_lost?
     system('clear')
     puts ""
     puts ""
