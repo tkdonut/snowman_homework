@@ -1,7 +1,22 @@
 class Game
-  def initialize(game,player,word)
-    @game = game
+  attr_reader :guessed_letters
+
+  def initialize(player,hiddenword)
     @player = player
-    @word = word
+    @hiddenword = hiddenword
+    @guessed_letters=[]
+  end
+
+  def make_guess(guess)
+
+    if guess.length != 1 || @guessed_letters.include?(guess)
+      return
+    elsif @hiddenword.is_in_secret?(guess) == false
+      @guessed_letters << guess
+      @player.lose_life()
+      
+    else
+      @guessed_letters << guess
+    end
   end
 end
