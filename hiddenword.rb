@@ -29,8 +29,7 @@ class HiddenWord
     }
     # Map letters from original word to obfuscated word.
 
-    indexes_to_sub.each { |index| @word_to_display[index] = @word[index]
-    }
+    indexes_to_sub.each { |index| @word_to_display[index] = @word[index]}
 
     return @word_to_display
   end

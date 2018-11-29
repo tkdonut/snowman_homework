@@ -3,8 +3,7 @@ require_relative('./hiddenword')
 require_relative('./player')
 system('clear')
 
-
-
+#Splash screen
 
 puts ''
 puts ''
@@ -16,28 +15,25 @@ puts '      "Y88b. 888 "88b d88""88b 888  888  888 888 "888 "88b     "88b 888 "8
 puts '        "888 888  888 888  888 888  888  888 888  888  888 .d888888 888  888 '
 puts '  Y88b  d88P 888  888 Y88..88P Y88b 888 d88P 888  888  888 888  888 888  888 '
 puts '   "Y8888P"  888  888  "Y88P"   "Y8888888P"  888  888  888 "Y888888 888  888 '
-
 puts ''
 puts ''
 print "            \"It's definately not hangman\" - anon"
 puts ''
 puts ''
 puts ''
+
+#Game set up prompts
+
 print '  What would you like to be called? '
-
 name = gets.chomp
-
 puts ''
 print "  Ok #{name}, now enter a secret word or phrase:  "
-
 word = gets.chomp
 while word == ''
   puts ''
   print '  I need a word! Try again: '
   word = gets.chomp
 end
-
-
 @hiddenword = HiddenWord.new(word)
 @player = Player.new(name)
 @game = Game.new(@player,@hiddenword)
@@ -45,12 +41,12 @@ end
 # Main loop
 
 while true
-  system('clear')
-  puts ''
-  puts ''
-  print '  Lives remaining:  '
-  @player.lives.times do
-  print '  ❤'
+    system('clear')
+    puts ''
+    puts ''
+    print '  Lives remaining:  '
+    @player.lives.times do
+    print '  ❤'
   end
   puts ''
   puts ''
@@ -76,7 +72,4 @@ while true
     puts ""
     break
   end
-
-
-
 end
