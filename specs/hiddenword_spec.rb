@@ -51,6 +51,4 @@ class HiddenWordTest < MiniTest::Test
     @guessed_letters = ['a','e']
     assert_equal('a***e',@hiddenword.display(@guessed_letters))
   end
-
-
 end
