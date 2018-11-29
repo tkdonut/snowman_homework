@@ -41,15 +41,23 @@ end
 
 
 hiddenword = HiddenWord.new(word)
-player = name
+player = Player.new(name)
 game = Game.new(player,hiddenword)
 
-#Main loop
+# Main loop
 
-# while true
-#   system('clear')
-#   puts ''
-#   puts ''
-#
-#   game.make_guess(gets.chomp)
-# end
+while true
+  system('clear')
+  puts ''
+  puts ''
+  print '  Lives remaining:  '
+  player.lives.times do
+    print '  ❤'
+  end
+  puts ''
+  puts ''
+  puts ''
+  puts ''
+  puts '      ' + hiddenword.display(game.guessed_letters)
+  game.make_guess(gets.chomp)
+end

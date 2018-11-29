@@ -14,7 +14,6 @@ class HiddenWord
 
   def display(guessed_letters)
 
-    system("clear")
 
     @word_to_display = obfuscate()
 
