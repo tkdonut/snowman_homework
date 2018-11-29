@@ -14,9 +14,13 @@ class Game
     elsif @hiddenword.is_in_secret?(guess) == false
       @guessed_letters << guess
       @player.lose_life()
-      
+
     else
       @guessed_letters << guess
     end
+  end
+
+  def is_won?()
+    @hiddenword.display(guessed_letters) == @hiddenword.word
   end
 end

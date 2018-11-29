@@ -7,9 +7,9 @@ require_relative('../hiddenword')
 class TestGame < MiniTest::Test
 
   def setup
-    p @player = Player.new('Tom')
-    p @hiddenword = HiddenWord.new('banana')
-    @game = Game.new(@player,@hiddenword)
+     @player = Player.new('Tom')
+     @hiddenword = HiddenWord.new('banana')
+     @game = Game.new(@player,@hiddenword)
   end
 
   def test_make_guess__charpresent
@@ -37,6 +37,20 @@ class TestGame < MiniTest::Test
     @game.make_guess('a')
     @game.make_guess('a')
     assert_equal(['a'],@game.guessed_letters)
+  end
+
+  def test_game_is_won__correct_guesses
+    @game.make_guess('b')
+    @game.make_guess('a')
+    @game.make_guess('n')
+    assert_equal(true,@game.is_won?)
+  end
+
+  def test_game_is_won__incorrect_guesses
+    @game.make_guess('8')
+    @game.make_guess('z')
+    @game.make_guess('5')
+    assert_equal(false,@game.is_won?)
   end
 
 end

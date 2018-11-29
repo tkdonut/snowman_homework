@@ -1,4 +1,5 @@
 class HiddenWord
+  attr_reader :word
   def initialize(word)
     @word = word
   end
@@ -33,8 +34,5 @@ class HiddenWord
     }
 
     return @word_to_display
-
   end
-
-
 end

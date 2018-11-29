@@ -45,11 +45,12 @@ class HiddenWordTest < MiniTest::Test
     @guessed_letters = ['o','w']
     assert_equal('*ow *ow **ow* *ow',@hiddenword.display(@guessed_letters))
   end
-  
+
   def test_display__word
     @hiddenword = HiddenWord.new('apple')
     @guessed_letters = ['a','e']
     assert_equal('a***e',@hiddenword.display(@guessed_letters))
   end
+
 
 end
