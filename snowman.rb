@@ -2,6 +2,10 @@ require_relative('./game')
 require_relative('./hiddenword')
 require_relative('./player')
 system('clear')
+
+
+
+
 puts ''
 puts ''
 puts ' .d8888b.                                                                  '
@@ -24,3 +28,28 @@ puts ''
 print 'What would you like to be called? '
 
 name = gets.chomp
+
+puts ''
+print "Ok #{name}, now enter a secret word or phrase:  "
+
+word = gets.chomp
+while word == ''
+  puts ''
+  print 'I need a word! Try again: '
+  word = gets.chomp
+end
+
+
+hiddenword = HiddenWord.new(word)
+player = name
+game = Game.new(player,hiddenword)
+
+#Main loop
+
+# while true
+#   system('clear')
+#   puts ''
+#   puts ''
+#
+#   game.make_guess(gets.chomp)
+# end
