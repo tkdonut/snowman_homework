@@ -21,7 +21,7 @@ class Game
   end
 
   def is_won?()
-    @hiddenword.display(guessed_letters) == @hiddenword.word
+    @hiddenword.display(@guessed_letters) == @hiddenword.word
   end
 
   def is_lost?()

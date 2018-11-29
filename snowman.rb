@@ -23,26 +23,24 @@ p "It's definately not hangman"+" - anon"
 puts ''
 puts ''
 puts ''
-puts ''
-puts ''
-print 'What would you like to be called? '
+print '  What would you like to be called? '
 
 name = gets.chomp
 
 puts ''
-print "Ok #{name}, now enter a secret word or phrase:  "
+print "  Ok #{name}, now enter a secret word or phrase:  "
 
 word = gets.chomp
 while word == ''
   puts ''
-  print 'I need a word! Try again: '
+  print '  I need a word! Try again: '
   word = gets.chomp
 end
 
 
-hiddenword = HiddenWord.new(word)
-player = Player.new(name)
-game = Game.new(player,hiddenword)
+@hiddenword = HiddenWord.new(word)
+@player = Player.new(name)
+@game = Game.new(@player,@hiddenword)
 
 # Main loop
 
@@ -51,13 +49,34 @@ while true
   puts ''
   puts ''
   print '  Lives remaining:  '
-  player.lives.times do
-    print '  ❤'
+  @player.lives.times do
+  print '  ❤'
   end
   puts ''
   puts ''
   puts ''
+  puts '  Word:      ' + @hiddenword.display(@game.guessed_letters)
   puts ''
-  puts '      ' + hiddenword.display(game.guessed_letters)
-  game.make_guess(gets.chomp)
+  puts ''
+  print '  Guess a character : '
+  @game.make_guess(gets.chomp)
+
+  if @game.is_won? == true
+    system('clear')
+    puts ""
+    puts ""
+    puts "  Nicely done #{@player.name}!  A winner is you !    "
+    puts ""
+    break
+  elsif @game.is_lost? == true
+    system('clear')
+    puts ""
+    puts ""
+    puts "  Sorry #{@player.name}, the answer was #{@hiddenword.word}. **Sad trombone**"
+    puts ""
+    break
+  end
+
+
+
 end
